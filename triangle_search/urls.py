@@ -22,5 +22,6 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^search/', include('haystack.urls')),
     url(r'^$', 'browse.views.index'), 
-    staticfiles_urlpatterns(),
 ]
+
+urlpatterns += staticfiles_urlpatterns()
