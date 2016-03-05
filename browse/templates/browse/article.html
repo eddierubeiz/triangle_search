@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<a class="btn" href="{% url 'index' %}">Home</a> /
+<a class="btn" href="{% url 'issue' article.issue.id %}">{{article.issue}}</a> /
+<a class="btn" href="{% url 'article' article.id %}">{{article.title}}</a>
+
+<h1>{{article.title}}</h1>
+
+This article is on p. {{article.page}} of <a href ="{{article.issue.issue_url}}">{{article.issue.issue_url}}</a><br/>
+
+<p>Genre: {{article.genre}}</p>
+<p>Keywords: {{article.keywords}}</p>
+<br/><br/>
+<!--
+<hr/>
+{{ article.dir }}<br/>
+<hr/>
+{{article.issue.dir}}<br/>
+-->
+{% endblock %}
