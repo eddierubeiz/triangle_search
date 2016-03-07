@@ -13,10 +13,10 @@
   <strong>This site is in beta.</strong> It is intended merely as a proof of concept. You will probably encounter broken links, errors,  or duplicate data. Its availability is not guaranteed.
 </div>
 <br/>
-{% if issue_counts %}
+{% if issue_list %}
     <ul>
-       {% for year, number_of_issues in issue_counts.items %}
-        <li><a href="/browse/year/{{ year }}/">{{ year }} ( {{number_of_issues}} issues)</a></li>
+       {% for issue in issue_list %}
+        <li><a href="/browse/issue/{{ issue.id }}/">{{ issue }}</a></li>
       {% endfor %}
     </ul>
 {% else %}

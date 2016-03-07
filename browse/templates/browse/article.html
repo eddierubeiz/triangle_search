@@ -2,20 +2,20 @@
 
 {% block content %}
 <a class="btn" href="{% url 'index' %}">Home</a> /
+<a class="btn" href="{% url 'year' year %}">{{year}}</a> /
 <a class="btn" href="{% url 'issue' article.issue.id %}">{{article.issue}}</a> /
 <a class="btn" href="{% url 'article' article.id %}">{{article.title}}</a>
 
 <h1>{{article.title}}</h1>
 
-This article is on p. {{article.page}} of <a href ="{{article.issue.issue_url}}">{{article.issue.issue_url}}</a><br/>
+<p>Click this link to see a facsimile of the issue that contains this article:</p>
+<p><a href ="{{article.issue.issue_url}}">{{article.issue.issue_url}}</a></p>
 
-<p>Genre: {{article.genre}}</p>
-<p>Keywords: {{article.keywords}}</p>
-<br/><br/>
-<!--
-<hr/>
-{{ article.dir }}<br/>
-<hr/>
-{{article.issue.dir}}<br/>
--->
+<p>This article is on page {{article.page}}.</p>
+
+<p><strong>Genre:</strong>  {{article.genre}}</p>
+
+<p><strong>Keywords:</strong> {{article.description}}</p>
+
+
 {% endblock %}

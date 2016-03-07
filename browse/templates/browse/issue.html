@@ -2,7 +2,9 @@
 
 {% block content %}
 
-<a class="btn" href="{% url 'index' %}">Home</a> / <a class="btn" href="{% url 'issue' issue.id %}">{{issue}}</a>
+<a class="btn" href="{% url 'index' %}">Home</a> /
+<a class="btn" href="{% url 'year' year %}">{{year}}</a> / 
+<a class="btn" href="{% url 'issue' issue.id %}">{{issue}}</a>
 
 <br/>
 

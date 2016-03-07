@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<a class="btn" href="{% url 'index' %}">Home</a> /
+<a class="btn" href="{% url 'year' year %}">{{year}}</a> /
+<br/>
+<h1>Browse issues for {{year}}</h1>
+<div class="well">
+The following issues are on record for {{year}}. Click on any one to see a list of articles.
+</div>
+<br/>
+{% if issue_list %}
+    <ul>
+       {% for issue in issue_list %}
+        <li><a href="/browse/issue/{{ issue.id }}/">{{ issue }}</a></li>
+      {% endfor %}
+    </ul>
+{% else %}
+    <p>No issues are available.</p>
+{% endif %}
+{% endblock %}

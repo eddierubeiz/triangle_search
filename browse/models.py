@@ -12,12 +12,12 @@ class TriangleIssue(models.Model):
     volume = models.IntegerField(default=0)
     number = models.IntegerField(default=0)
     issue_url = models.TextField()
-    notes_1= models.TextField()
+    ocr_text= models.TextField()
     notes_2= models.TextField()
     notes_3= models.TextField()
 
     def __str__(self):
-        return "Drexel Triangle for  %s " % self.pub_date.strftime("%b. %d,  %Y")
+        return "Drexel Triangle, v. %d, n. %d, published  %s " % (self.volume, self.number, self.pub_date.strftime("%b. %d,  %Y"))
         
             
     def dir(self):

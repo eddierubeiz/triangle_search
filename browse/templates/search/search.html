@@ -22,7 +22,16 @@
 
             {% for result in page.object_list %}
                 <p>
-                    <a href="{{ result.object.get_absolute_url }}">{{ result.object.title }} ( {{ result.object.issue }} ) </a>
+		  {% if result.model_name == 'trianglearticle' %}
+                    Article: <a href="{{ result.object.get_absolute_url }}" >{{ result.object.title }}  </a> in
+                      <a href="{{ result.object.issue.get_absolute_url }}" > {{ result.object.issue }} </a>
+                     ( <a href="{{ result.object.issue.issue_url }}" target="_blank" >PDF</a> )
+		    {%endif %}
+
+		  {% if result.model_name == 'triangleissue' %}
+                    Issue: <a href="{{ result.object.get_absolute_url}}"  > {{ result.object }}</a>
+                    (<a href="{{ result.object.issue_url }}" target="_blank" >PDF</a>)
+		  {%endif %}
                 </p>
             {% empty %}
                 <p>No results found.</p>
